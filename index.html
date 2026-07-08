@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>YOONMAY.COM</title>
+    <title>YOONMAY.com</title>
     
     <!-- 🌟 Google Font Style အလှများ ချိတ်ဆက်ခြင်း -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,8 +12,9 @@
 
     <style>
         :root {
-            --dark-blue: #02060E;
-            --red-mix: #C50337;
+            --bright-blue: #0033FF;    /* အစ်ကိုပေးထားတဲ့ Bright Royal Blue */
+            --dark-cyber: #00033D;     /* အစ်ကိုပေးထားတဲ့ Deep Cyber Blue */
+            --dark-bg: #010214;        /* အပြာရောင်နဲ့ လိုက်ဖက်မယ့် အမှောင်ဆုံး နောက်ခံ */
             --white: #ffffff;
             --font-style: 'Montserrat', sans-serif;
             --font-heading: 'Audiowide', sans-serif;
@@ -30,15 +31,15 @@
 
         html, body {
             width: 100%;
-            overflow-x: hidden; /* ဘေးကို ကားထွက်ခြင်းမှ လုံးဝကာကွယ်ရန် */
-            background-color: #0b0214;
+            overflow-x: hidden; 
+            background-color: var(--dark-bg);
         }
 
         body {
-            /* Cyberpunk Grid Line Background Pattern */
+            /* Cyberpunk Blue Grid Line Background Pattern */
             background-image: 
-                linear-gradient(rgba(147, 51, 234, 0.2) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(147, 51, 234, 0.2) 1px, transparent 1px);
+                linear-gradient(rgba(0, 51, 255, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 51, 255, 0.15) 1px, transparent 1px);
             background-size: 40px 40px;
             display: flex;
             justify-content: center;
@@ -75,7 +76,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.88);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -86,13 +87,13 @@
         .popup-box {
             width: 100%;
             max-width: 360px;
-            background: linear-gradient(180deg, var(--dark-blue) 0%, var(--red-mix) 100%);
+            background: linear-gradient(180deg, var(--dark-cyber) 0%, var(--bright-blue) 100%);
             border: 3px solid var(--white);
             border-radius: 20px;
             padding: 24px;
             text-align: center;
             animation: popIn 0.3s ease-out;
-            box-shadow: 0 0 20px rgba(197, 3, 55, 0.5);
+            box-shadow: 0 0 25px rgba(0, 51, 255, 0.6);
         }
 
         @keyframes popIn {
@@ -117,7 +118,7 @@
 
         .popup-btn {
             background: var(--white);
-            color: var(--red-mix);
+            color: var(--bright-blue);
             border: none;
             border-radius: 30px;
             padding: 12px 32px;
@@ -130,26 +131,26 @@
 
         /* ==================== TOP ROUNDED PANEL UI ==================== */
         .top-panel-container {
-            background: linear-gradient(180deg, var(--red-mix) 0%, var(--dark-blue) 100%);
+            background: linear-gradient(180deg, var(--bright-blue) 0%, var(--dark-cyber) 100%);
             border-bottom-left-radius: 40px;
             border-bottom-right-radius: 40px;
             padding: 24px 16px;
             display: flex;
             flex-direction: column;
             gap: 16px;
-            border-bottom: 4px solid #000;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            border-bottom: 4px solid #000000;
+            box-shadow: 0 8px 20px rgba(0, 3, 61, 0.8);
             width: 100%;
         }
 
-        /* 🔥 ANIMATED MAIN TITLE HEADER */
+        /* 🔥 ANIMATED MAIN TITLE HEADER (BLUE NEON GLOW) */
         .site-main-title {
             font-family: var(--font-heading);
             font-size: 2.2rem;
             text-align: center;
             font-style: italic;
             letter-spacing: 2px;
-            background: linear-gradient(90deg, #ff0055, #ffffff, #ffcc00, #ff0055);
+            background: linear-gradient(90deg, #00f0ff, var(--white), var(--bright-blue), #00f0ff);
             background-size: 300% 100%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -162,7 +163,7 @@
             100% { background-position: 100% 50%; }
         }
 
-        /* Search Bar Box Style Matches Image */
+        /* Search Bar Box Style */
         .search-container {
             position: relative;
             width: 100%;
@@ -178,7 +179,7 @@
             font-weight: bold;
             outline: none;
             background: var(--white);
-            color: #222;
+            color: #111;
             box-shadow: inset 0 3px 6px rgba(0,0,0,0.2);
         }
         
@@ -192,7 +193,7 @@
             user-select: none;
         }
 
-        /* Category Row Responsive Layout Container */
+        /* Category Row Layout */
         .category-section {
             display: flex;
             flex-direction: column;
@@ -212,10 +213,9 @@
             letter-spacing: 1px;
         }
 
-        /* ကားထွက်ခြင်းမရှိအောင် Dot လိုင်းကို စနစ်တကျ ထိန်းညှိခြင်း */
         .dot-divider {
             flex: 1;
-            border-bottom: 2px dotted rgba(255, 255, 255, 0.6);
+            border-bottom: 2px dotted rgba(255, 255, 255, 0.5);
             height: 1px;
         }
 
@@ -227,8 +227,8 @@
         }
 
         .cat-btn {
-            background: linear-gradient(180deg, #1f1f1f 0%, #3a3a3a 40%, #ffffff 100%);
-            border: 3px solid #FF4D4D;
+            background: linear-gradient(180deg, #111111 0%, #2a2a2a 40%, #ffffff 100%);
+            border: 3px solid #00d2ff; /* Blue Theme နဲ့ လိုက်ဖက်မယ့် Cyan Accent */
             border-radius: 16px;
             padding: 18px 0;
             font-size: 0.95rem;
@@ -239,23 +239,23 @@
             cursor: pointer;
             flex: 1;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.5);
         }
 
         .cat-btn.active {
             border-color: var(--white);
-            box-shadow: 0 0 12px var(--red-mix);
+            box-shadow: 0 0 12px var(--bright-blue);
         }
 
-        /* ==================== 📸 PHOTO AUTO SLIDER UI WITH RED-BLACK RUNNER FRAME ==================== */
+        /* ==================== 📸 PHOTO AUTO SLIDER UI WITH BLUE RUNNER FRAME ==================== */
         .slider-wrapper {
             margin: 0 12px;
-            padding: 4px; /* Frame ပေါ်ရန် */
+            padding: 4px; 
             border-radius: 18px;
-            background: linear-gradient(90deg, #ff0000, #000000, #ff0000);
+            background: linear-gradient(90deg, var(--bright-blue), var(--dark-cyber), var(--bright-blue));
             background-size: 300% 100%;
-            animation: redBlackRunner 4s linear infinite;
-            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+            animation: blueRunner 4s linear infinite;
+            box-shadow: 0 6px 18px rgba(0, 51, 255, 0.4);
         }
 
         .slider-container {
@@ -288,7 +288,7 @@
             display: block;
         }
 
-        /* ✍️ ပုံဘေးက အဖြူကွက်နေရာမှာ စာသားထည့်ရန် Dynamic Overlay */
+        /* ✍️ ပုံဘေးက အဖြူကွက်နေရာစာသား overlay */
         .slide-text-overlay {
             position: absolute;
             top: 0;
@@ -305,15 +305,15 @@
         }
 
         .slide-text-overlay p {
-            color: #1a0011; 
+            color: #00033d; 
             font-size: 0.85rem;
             font-weight: 700;
             line-height: 1.5;
             text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
         }
 
-        /* Red & Black Mixer Runner Background Animation Keyframe */
-        @keyframes redBlackRunner {
+        /* Blue Theme Runner Animation */
+        @keyframes blueRunner {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
         }
@@ -332,14 +332,14 @@
         }
 
         .video-card {
-            background: linear-gradient(135deg, var(--red-mix) 0%, var(--dark-blue) 100%);
+            background: linear-gradient(135deg, var(--bright-blue) 0%, var(--dark-cyber) 100%);
             aspect-ratio: 16/11;
             border: 3px solid var(--white);
             border-radius: 18px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.6);
         }
 
         .video-card img {
@@ -353,7 +353,7 @@
         .video-meta-overlay {
             position: absolute;
             bottom: 0;
-            background: rgba(2, 6, 14, 0.9);
+            background: rgba(0, 3, 61, 0.95); /* Deep Blue Overlay */
             color: #fff;
             width: 100%;
             padding: 6px;
@@ -371,7 +371,7 @@
 
         .video-views {
             font-size: 0.6rem;
-            color: #FF4D4D;
+            color: #00d2ff;
             font-weight: bold;
         }
 
@@ -385,7 +385,7 @@
         }
         
         .back-btn {
-            background: linear-gradient(180deg, var(--red-mix) 0%, var(--dark-blue) 100%);
+            background: linear-gradient(180deg, var(--bright-blue) 0%, var(--dark-cyber) 100%);
             border: 2px solid var(--white);
             border-radius: 20px;
             color: var(--white);
@@ -406,7 +406,7 @@
             border: 3px solid var(--white);
             border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.7);
         }
 
         .video-player-box iframe {
@@ -417,7 +417,7 @@
         }
 
         .text-slider-bar {
-            background: linear-gradient(90deg, var(--dark-blue), var(--red-mix));
+            background: linear-gradient(90deg, var(--dark-cyber), var(--bright-blue));
             border: 2px solid var(--white);
             padding: 12px;
             color: #fff;
@@ -428,12 +428,12 @@
 
         /* ==================== 💎 PREMIUM VIP BOX & ANIMATED BUTTON ==================== */
         .premium-vip-box {
-            background: linear-gradient(135deg, #150208 0%, #3a0211 100%);
+            background: linear-gradient(135deg, #00021a 0%, #00115c 100%);
             border: 3px solid #FFD700; 
             border-radius: 18px;
             padding: 16px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 18px rgba(255, 215, 0, 0.4);
             margin: 8px 0;
             display: flex;
             flex-direction: column;
@@ -448,9 +448,9 @@
             text-shadow: 1px 1px 2px #000;
         }
 
-        /* 🏃‍♂️ Animated Runner Color VIP Button */
+        /* 🏃‍♂️ Animated Runner Color VIP Button (Blue/Cyan Cyber Mix) */
         .vip-runner-btn {
-            background: linear-gradient(90deg, #ff0055, #9900ff, #00e5ff, #ff0055);
+            background: linear-gradient(90deg, #0033ff, #00d2ff, #7a00ff, #0033ff);
             background-size: 300% 100%;
             color: #ffffff;
             border: 2px solid #ffffff;
@@ -464,7 +464,7 @@
             display: block;
             cursor: pointer;
             text-shadow: 2px 2px 3px #000;
-            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 51, 255, 0.5);
             animation: runnerBg 3s linear infinite;
             transition: transform 0.2s;
         }
@@ -473,7 +473,6 @@
             transform: scale(0.96);
         }
 
-        /* Runner Background Animation Keyframe */
         @keyframes runnerBg {
             0% { background-position: 0% 50%; }
             100% { background-position: 100% 50%; }
@@ -506,7 +505,7 @@
     <div class="popup-box">
         <div class="popup-title">NOTICE</div>
         <div class="popup-text">
-            ဤဝဘ်ဆိုက်သည် အသက် ၁၈ နှစ်ပြည့်ပြီးသူများသာ ကြည့်ရှုရန် ဖြစ်ပါသည်။ စည်းကမ်းချက်များကို သဘောတူပါက အောက်ပါခလုတ်ကို နှိပ်၍ ဆက်လက်ဝင်ရောက်နိုင်ပါသည်ဗျာ။
+            ဤဝဘ်ဆိုက်သည် အသက် ၁၈ နှစ်ပြည့်ပြီးသူများသာ ကြည့်ရှုရန် ဖြစ်ပါသည်။ စည်းကမ်းချက်များကို သဘောတူပါက အောက်ပါခလုတ်ကို နှိပ်၍ ဆက်လက်ဝင်ရောက်နိုင်ပါသည်။
         </div>
         <button class="popup-btn" onclick="closeNoticePopup()">...လက်ခံပါသည်...</button>
     </div>
@@ -601,8 +600,8 @@
                 <div class="vip-box-text">
                     မြန်မာ အလန်းဇယား // Local Leak // မော်ဒယ်ကားများ // Solo Vd // အထန်မလေးဟာများ // ပရီမီယံ Videos တွေကို Vipကြေး ၂၀၀၀၀ကျပ်ဖြင့် လာရောက်ဝင်နိုင်ပါပြီ!
                 </div>
-                <!-- 🔗 Telegram User/Bot Link with Pre-filled Text (Auto Typing) -->
-                <a href="https://t.me/prelatial?text=Vipဝင်ချင်လို့ပါဗျ%20ငွေလွှဲရမဲ့%20နံပါတ်လေးပို့ထားပေးပါ" target="_blank" class="vip-runner-btn">
+                <!-- 🔗 Telegram User/Bot Link with Pre-filled Auto Typing Text -->
+                <a href="https://t.me/prelatial?text=Vipဝင်ချင်လို့ပါဗျ ငွေလွှဲရမဲ့ နံပါတ်လေးပို့ထားပေးပါ" target="_blank" class="vip-runner-btn">
                     VIP ဝင်ရန်
                 </a>
             </div>
@@ -632,7 +631,6 @@
     let isFetchingMore = false;
     let currentActiveView = "dashboard"; 
 
-    // Advanced Persistent Memory Array Tracker via SessionStorage
     if (!sessionStorage.getItem('seenVideoIds')) {
         sessionStorage.setItem('seenVideoIds', JSON.stringify([]));
     }
@@ -641,7 +639,6 @@
         loadPortalVideos(searchKeyword, dashboardPageNum, 'mainVideoGrid', false);
         initPhotoAutoSlider(); 
 
-        // Capture enter key press inside text input element
         document.getElementById('searchField').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 executeSearch();
@@ -649,7 +646,6 @@
             }
         });
 
-        // 2-Way Infinite Scroll System for BOTH Dashboard and Player Views
         window.addEventListener('scroll', () => {
             if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
                 if (!isFetchingMore) {
@@ -679,12 +675,10 @@
         }, 3000); 
     }
 
-    // Notice Pop-up Close Action Handler function
     function closeNoticePopup() {
         document.getElementById('noticePopup').style.display = 'none';
     }
 
-    // Unified API Consumer with Advanced Memory Filter & Views Generator
     async function loadPortalVideos(query, pageNum, containerId, appendMode = false) {
         const targetGrid = document.getElementById(containerId);
         
@@ -756,7 +750,7 @@
                 isFetchingMore = false;
             } else {
                 if (!appendMode) {
-                    targetGrid.innerHTML = `<div class="loader-msg">$\small\text{ရှာဖွေမှုမတွေ့ရှိပါ။}$</div>`;
+                    targetGrid.innerHTML = `<div class="loader-msg">ရှာဖွေမှုမတွေ့ရှိပါ။</div>`;
                 }
                 isFetchingMore = false;
             }
