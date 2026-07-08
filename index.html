@@ -4,24 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LOCALLEAK - HD</title>
+    
+    <!-- 🌟 Google Font Style အလှများ ချိတ်ဆက်ခြင်း -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --dark-blue: #02060E;
             --red-mix: #C50337;
             --white: #ffffff;
+            --font-style: 'Montserrat', sans-serif;
+            --font-heading: 'Audiowide', sans-serif;
         }
 
-        /* Phone Screen Baseline Reset */
+        /* 📱 Mobile Overflow Prevention Base Reset */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Impact', 'Segoe UI', Arial, sans-serif;
+            font-family: var(--font-style);
             -webkit-tap-highlight-color: transparent;
         }
 
-        body {
+        html, body {
+            width: 100%;
+            overflow-x: hidden; /* ဘေးကို ကားထွက်ခြင်းမှ လုံးဝကာကွယ်ရန် */
             background-color: #0b0214;
+        }
+
+        body {
             /* Cyberpunk Grid Line Background Pattern */
             background-image: 
                 linear-gradient(rgba(147, 51, 234, 0.2) 1px, transparent 1px),
@@ -31,19 +44,18 @@
             justify-content: center;
             align-items: flex-start;
             min-height: 100vh;
-            padding: 0;
         }
 
-        /* 📱 Strict Mobile Screen Constraint */
+        /* 📱 Strict Phone Screen Baseline Boundary */
         .phone-screen {
             width: 100%;
             max-width: 430px;
             min-height: 100vh;
-            padding: 0;
             display: flex;
             flex-direction: column;
             gap: 16px;
             position: relative;
+            overflow-x: hidden;
         }
 
         .page { 
@@ -89,14 +101,14 @@
         }
 
         .popup-title {
-            font-size: 1.8rem;
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
             color: var(--white);
             margin-bottom: 12px;
             text-shadow: 2px 2px 4px #000;
         }
 
         .popup-text {
-            font-family: 'Segoe UI', Arial, sans-serif;
             font-size: 0.9rem;
             color: var(--white);
             line-height: 1.6;
@@ -116,25 +128,23 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        .popup-btn:active {
-            transform: scale(0.98);
-        }
-
         /* ==================== TOP ROUNDED PANEL UI ==================== */
         .top-panel-container {
             background: linear-gradient(180deg, var(--red-mix) 0%, var(--dark-blue) 100%);
-            border-bottom-left-radius: 45px;
-            border-bottom-right-radius: 45px;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
             padding: 24px 16px;
             display: flex;
             flex-direction: column;
             gap: 16px;
             border-bottom: 4px solid #000;
             box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+            width: 100%;
         }
 
         .site-main-title {
-            font-size: 2.5rem;
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
             color: var(--white);
             text-align: center;
             font-style: italic;
@@ -153,12 +163,12 @@
             padding: 14px 50px 14px 16px;
             border: 3px solid #000000;
             border-radius: 30px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-style: italic;
             font-weight: bold;
             outline: none;
             background: var(--white);
-            color: #555;
+            color: #222;
             box-shadow: inset 0 3px 6px rgba(0,0,0,0.2);
         }
         
@@ -167,13 +177,12 @@
             right: 18px;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             cursor: pointer;
             user-select: none;
-            font-weight: bold;
         }
 
-        /* Category Row Styles Matches Image */
+        /* Category Row Responsive Layout Container */
         .category-section {
             display: flex;
             flex-direction: column;
@@ -181,29 +190,39 @@
             width: 100%;
         }
 
-        .category-title {
+        .category-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
             color: var(--white);
-            font-size: 1.3rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
             font-style: italic;
             letter-spacing: 1px;
-            border-bottom: 2px dotted var(--white);
-            padding-bottom: 4px;
+        }
+
+        /* ကားထွက်ခြင်းမရှိအောင် Dot လိုင်းကို စနစ်တကျ ထိန်းညှိခြင်း */
+        .dot-divider {
+            flex: 1;
+            border-bottom: 2px dotted rgba(255, 255, 255, 0.6);
+            height: 1px;
         }
 
         .category-buttons-row {
             display: flex;
             justify-content: space-between;
-            gap: 12px;
+            gap: 8px;
             width: 100%;
-            padding: 4px 0;
         }
 
         .cat-btn {
             background: linear-gradient(180deg, #1f1f1f 0%, #3a3a3a 40%, #ffffff 100%);
             border: 3px solid #FF4D4D;
-            border-radius: 18px;
-            padding: 22px 0;
-            font-size: 1.2rem;
+            border-radius: 16px;
+            padding: 18px 0;
+            font-size: 0.95rem;
+            font-family: var(--font-heading);
             font-style: italic;
             color: var(--white);
             text-shadow: 2px 2px 2px #000;
@@ -227,7 +246,7 @@
         .video-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 12px;
             width: 100%;
         }
 
@@ -235,7 +254,7 @@
             background: linear-gradient(135deg, var(--red-mix) 0%, var(--dark-blue) 100%);
             aspect-ratio: 16/11;
             border: 3px solid var(--white);
-            border-radius: 22px;
+            border-radius: 18px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
@@ -250,32 +269,28 @@
             display: block;
         }
 
-        /* Video Meta Controls with Views added */
         .video-meta-overlay {
             position: absolute;
             bottom: 0;
             background: rgba(2, 6, 14, 0.9);
             color: #fff;
             width: 100%;
-            padding: 6px 8px;
+            padding: 6px;
             display: flex;
             flex-direction: column;
             gap: 2px;
-            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
         .video-title {
-            font-size: 0.72rem;
-            font-family: sans-serif;
+            font-size: 0.7rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
         .video-views {
-            font-size: 0.62rem;
+            font-size: 0.6rem;
             color: #FF4D4D;
-            font-family: Arial, sans-serif;
             font-weight: bold;
         }
 
@@ -285,6 +300,7 @@
             display: flex;
             flex-direction: column;
             gap: 16px;
+            width: 100%;
         }
         
         .back-btn {
@@ -292,15 +308,14 @@
             border: 2px solid var(--white);
             border-radius: 20px;
             color: var(--white);
-            padding: 12px 20px;
-            font-size: 0.95rem;
+            padding: 10px 18px;
+            font-size: 0.85rem;
             font-weight: bold;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             align-self: flex-start;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
 
         .video-player-box {
@@ -308,7 +323,7 @@
             aspect-ratio: 16/10;
             background: #000;
             border: 3px solid var(--white);
-            border-radius: 22px;
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: 0 8px 16px rgba(0,0,0,0.6);
         }
@@ -325,15 +340,67 @@
             border: 2px solid var(--white);
             padding: 12px;
             color: #fff;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: bold;
-            border-radius: 12px;
-            font-family: sans-serif;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            border-radius: 10px;
+        }
+
+        /* ==================== 💎 PREMIUM VIP BOX & ANIMATED BUTTON ==================== */
+        .premium-vip-box {
+            background: linear-gradient(135deg, #150208 0%, #3a0211 100%);
+            border: 3px solid #FFD700; /* ရွှေရောင် Border */
+            border-radius: 18px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            margin: 8px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .vip-box-text {
+            color: #ffffff;
+            font-size: 0.88rem;
+            line-height: 1.6;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px #000;
+        }
+
+        /* 🏃‍♂️ Animated Runner Color VIP Button */
+        .vip-runner-btn {
+            background: linear-gradient(90deg, #ff0055, #9900ff, #00e5ff, #ff0055);
+            background-size: 300% 100%;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            border-radius: 30px;
+            padding: 14px 20px;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            text-shadow: 2px 2px 3px #000;
+            box-shadow: 0 4px 15px rgba(255, 0, 85, 0.4);
+            animation: runnerBg 3s linear infinite;
+            transition: transform 0.2s;
+        }
+
+        .vip-runner-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Runner Background Animation Keyframe */
+        @keyframes runnerBg {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         .related-heading {
-            font-size: 1.2rem;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
             color: var(--white);
             font-style: italic;
             border-bottom: 2px dashed var(--white);
@@ -345,19 +412,18 @@
             grid-column: span 2;
             text-align: center;
             font-weight: bold;
-            font-size: 0.95rem;
-            padding: 24px 10px;
+            font-size: 0.9rem;
+            padding: 20px 10px;
             color: var(--white);
-            font-family: sans-serif;
         }
     </style>
 </head>
 <body>
 
-<!-- 🔔 Notice Pop-up Layer Component Included -->
+<!-- 🔔 Notice Pop-up Layer Component -->
 <div class="popup-overlay" id="noticePopup">
     <div class="popup-box">
-        <div class="popup-title">သတိပေးချက် (NOTICE)</div>
+        <div class="popup-title">NOTICE</div>
         <div class="popup-text">
             ဤဝဘ်ဆိုက်သည် အသက် ၁၈ နှစ်ပြည့်ပြီးသူများသာ ကြည့်ရှုရန် ဖြစ်ပါသည်။ စည်းကမ်းချက်များကို သဘောတူပါက အောက်ပါခလုတ်ကို နှိပ်၍ ဆက်လက်ဝင်ရောက်နိုင်ပါသည်ဗျာ။
         </div>
@@ -370,20 +436,23 @@
     <!-- ==================== DASHBOARD PAGE ==================== -->
     <div id="dashboardPage" class="page active">
         
-        <!-- Top Custom Panel UI Container Matches Image -->
+        <!-- Top Custom Panel UI Container -->
         <div class="top-panel-container">
-            <!-- Main Title Header Matched -->
+            <!-- Main Title Header -->
             <div class="site-main-title">LOCALLEAK - HD</div>
 
-            <!-- Search Bar Input Style Matched -->
+            <!-- Search Bar Input Element -->
             <div class="search-container">
                 <input type="text" id="searchField" class="search-input" placeholder="Search....Videos">
                 <div class="search-icon" onclick="executeSearch()">🔍</div>
             </div>
 
-            <!-- Timeline Category Selection Matched -->
+            <!-- Timeline Category Selection Section -->
             <div class="category-section">
-                <div class="category-title">CATEGORY...................................................................................</div>
+                <div class="category-title-wrap">
+                    <span>CATEGORY</span>
+                    <div class="dot-divider"></div>
+                </div>
                 <div class="category-buttons-row">
                     <button class="cat-btn active" onclick="changeCategory('all', this)">ALL</button>
                     <button class="cat-btn" onclick="changeCategory('asian', this)">ASIAN</button>
@@ -395,7 +464,7 @@
         <!-- Dashboard Videos Display Grid Area -->
         <div class="main-content-box">
             <div class="video-grid" id="mainVideoGrid">
-                <!-- Items Render here via JS Framework Layer -->
+                <!-- Items Render here via JS -->
             </div>
         </div>
     </div>
@@ -417,8 +486,19 @@
                 Loading Video Content Title Metadata...
             </div>
 
+            <!-- 💎 ဝင်ကြည့်တာနဲ့ ဗီဒီယိုအောက်မှာ ချက်ချင်းပေါ်မယ့် Premium VIP Box -->
+            <div class="premium-vip-box">
+                <div class="vip-box-text">
+                    မြန်မာ အလန်းဇယား // Local Leak // မော်ဒယ်ကားများ // Solo Vd // အထန်မလေးဟာများ // ပရမီယံ Videos တွေကို Vipကြေး ၂၀၀၀၀ကျပ်ဖြင့် လာရောက်ဝင်နိုင်ပါပြီ!
+                </div>
+                <!-- 🏃‍♂️ Animated Runner Color Link Button (အောက်ကလင့်ခ်နေရာမှာ မိမိ Bot Link ထည့်ပါ) -->
+                <a href="https://t.me/your_bot_username" target="_blank" class="vip-runner-btn">
+                    VIP ဝင်ရန်
+                </a>
+            </div>
+
             <!-- Related Content Blocks with Dynamic Infinite Scroll -->
-            <div class="related-heading">RELATED VIDEOS (SCROLL TO INFINITY)</div>
+            <div class="related-heading">RELATED VIDEOS</div>
             <div class="video-grid" id="relatedVideoGrid"></div>
         </div>
     </div>
@@ -460,7 +540,7 @@
 
         // 2-Way Infinite Scroll System for BOTH Dashboard and Player Views
         window.addEventListener('scroll', () => {
-            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 400) {
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 500) {
                 if (!isFetchingMore) {
                     isFetchingMore = true;
 
@@ -514,12 +594,10 @@
                 let uniqueCardsAddedCount = 0;
 
                 resultData.videos.forEach(video => {
-                    // STRICT ADVANCED FILTER: If video id exists inside history array, skip it completely!
                     if (!seenVideoIds.includes(video.id)) {
-                        seenVideoIds.push(video.id); // Commit to memory bank list instantly
+                        seenVideoIds.push(video.id); 
                         uniqueCardsAddedCount++;
 
-                        // Dynamic Views Formatting Mock Generation from API rate mapping
                         const rawViews = video.views || Math.floor(Math.random() * 450) + 25;
                         const formattedViews = rawViews >= 1000 ? (rawViews / 1000).toFixed(1) + 'K' : rawViews;
 
@@ -538,10 +616,8 @@
                     }
                 });
 
-                // Save back mutated state reference array cleanly
                 sessionStorage.setItem('seenVideoIds', JSON.stringify(seenVideoIds));
 
-                // Infinite loop jump protection fallback
                 if (uniqueCardsAddedCount === 0) {
                     isFetchingMore = false;
                     const nextPage = pageNum + 1;
