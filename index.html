@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>YOONMAY.COM</title>
     
+    <!-- 🌟 Google Font Style အလှများ ချိတ်ဆက်ခြင်း -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
@@ -141,14 +142,24 @@
             width: 100%;
         }
 
+        /* 🔥 ANIMATED MAIN TITLE HEADER */
         .site-main-title {
             font-family: var(--font-heading);
             font-size: 2.2rem;
-            color: var(--white);
             text-align: center;
             font-style: italic;
-            letter-spacing: 1px;
-            text-shadow: 3px 3px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff0055, #ffffff, #ffcc00, #ff0055);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 3px 3px 0px #000;
+            animation: titleGlow 4s linear infinite;
+        }
+
+        @keyframes titleGlow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
 
         /* Search Bar Box Style Matches Image */
@@ -282,7 +293,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 40%; /* ပုံရဲ့ ညာဘက်ခြမ်းအဖြူကွက်နေရာကို ချိန်ညှိထားတာဖြစ်ပါတယ် */
+            width: 40%; 
             height: 100%;
             display: flex;
             align-items: center;
@@ -294,7 +305,7 @@
         }
 
         .slide-text-overlay p {
-            color: #1a0011; /* အဖြူကွက်ပေါ်မှာ စာသားပေါ်လွင်အောင် အမဲ/အမှောင်ရောင် သုံးထားပါတယ် */
+            color: #1a0011; 
             font-size: 0.85rem;
             font-weight: 700;
             line-height: 1.5;
@@ -418,7 +429,7 @@
         /* ==================== 💎 PREMIUM VIP BOX & ANIMATED BUTTON ==================== */
         .premium-vip-box {
             background: linear-gradient(135deg, #150208 0%, #3a0211 100%);
-            border: 3px solid #FFD700; /* ရွှေရောင် Border */
+            border: 3px solid #FFD700; 
             border-radius: 18px;
             padding: 16px;
             text-align: center;
@@ -490,6 +501,7 @@
 </head>
 <body>
 
+<!-- 🔔 Notice Pop-up Layer Component -->
 <div class="popup-overlay" id="noticePopup">
     <div class="popup-box">
         <div class="popup-title">NOTICE</div>
@@ -502,16 +514,21 @@
 
 <div class="phone-screen">
 
+    <!-- ==================== DASHBOARD PAGE ==================== -->
     <div id="dashboardPage" class="page active">
         
+        <!-- Top Custom Panel UI Container -->
         <div class="top-panel-container">
+            <!-- Main Title Header with Animation -->
             <div class="site-main-title">YOONMAY-HD</div>
 
+            <!-- Search Bar Input Element -->
             <div class="search-container">
                 <input type="text" id="searchField" class="search-input" placeholder="Search....Videos">
                 <div class="search-icon" onclick="executeSearch()">🔍</div>
             </div>
 
+            <!-- Timeline Category Selection Section -->
             <div class="category-section">
                 <div class="category-title-wrap">
                     <span>CATEGORY</span>
@@ -525,21 +542,25 @@
             </div>
         </div>
 
+        <!-- 📸 PHOTO AUTO SLIDER SECTION -->
         <div class="slider-wrapper">
             <div class="slider-container">
                 <div class="slider-track" id="sliderTrack">
+                    <!-- Slide 1 -->
                     <div class="slide-item">
                         <img src="https://i.ibb.co/Fk2zkyjc/New-Project-114-D3-F3928.png" alt="Slide 1">
                         <div class="slide-text-overlay">
                             <p>အလန်းစား မော်ဒယ်သစ်များ နေ့စဉ်တင်ပေးသည်</p>
                         </div>
                     </div>
+                    <!-- Slide 2 -->
                     <div class="slide-item">
                         <img src="https://i.ibb.co/8n1JzTPc/New-Project-114-E42945-C.png" alt="Slide 2">
                         <div class="slide-text-overlay">
                             <p>ကြည်လင်ပြတ်သားသော HD Quality ဗီဒီယိုများ</p>
                         </div>
                     </div>
+                    <!-- Slide 3 -->
                     <div class="slide-item">
                         <img src="https://i.ibb.co/tTS0zmSh/New-Project-114-DA26311.png" alt="Slide 3">
                         <div class="slide-text-overlay">
@@ -550,34 +571,43 @@
             </div>
         </div>
 
+        <!-- Dashboard Videos Display Grid Area -->
         <div class="main-content-box">
             <div class="video-grid" id="mainVideoGrid">
-                </div>
+                <!-- Items Render here via JS -->
+            </div>
         </div>
     </div>
 
 
+    <!-- ==================== PLAYER PAGE ==================== -->
     <div id="playerPage" class="page">
         <div class="player-container-wrapper">
+            <!-- Action Back Button -->
             <button class="back-btn" onclick="returnToDashboard()">
                 ⬅ နောက်သို့ပြန်သွားရန်
             </button>
 
+            <!-- Video Display Frame -->
             <div class="video-player-box" id="iframeWrapper"></div>
 
+            <!-- Video Title Slider Container -->
             <div class="text-slider-bar" id="activeVideoTitle">
                 Loading Video Content Title Metadata...
             </div>
 
+            <!-- 💎 PREMIUM VIP BOX & REDIRECT BUTTON -->
             <div class="premium-vip-box">
                 <div class="vip-box-text">
                     မြန်မာ အလန်းဇယား // Local Leak // မော်ဒယ်ကားများ // Solo Vd // အထန်မလေးဟာများ // ပရမီယံ Videos တွေကို Vipကြေး ၂၀၀၀၀ကျပ်ဖြင့် လာရောက်ဝင်နိုင်ပါပြီ!
                 </div>
-                <a href="https://t.me/your_bot_username" target="_blank" class="vip-runner-btn">
+                <!-- 🔗 Telegram User/Bot Link with Pre-filled Text (Auto Typing) -->
+                <a href="https://t.me/prelatial?text=Vipဝင်ချင်လို့ပါဗျ%20ငွေလွှဲရမဲ့%20နံပါတ်လေးပို့ထားပေးပါ" target="_blank" class="vip-runner-btn">
                     VIP ဝင်ရန်
                 </a>
             </div>
 
+            <!-- Related Content Blocks with Dynamic Infinite Scroll -->
             <div class="related-heading">RELATED VIDEOS</div>
             <div class="video-grid" id="relatedVideoGrid"></div>
         </div>
@@ -585,9 +615,13 @@
 
 </div>
 
+<!-- ==================== ADSTERRA ADVERTISING CODES ==================== -->
+<!-- Popunder Ad -->
 <script src="https://pl30247190.effectivecpmnetwork.com/1b/c1/8d/1bc18dbccbb0492512d665fe4728d90f.js"></script>
+<!-- Social Bar Ad -->
 <script src="https://pl30247191.effectivecpmnetwork.com/8e/e7/36/8ee736ffc13b594f8960d0a967959a01.js"></script>
 
+<!-- Core API & Advanced View State Logic Management -->
 <script>
     let searchKeyword = "asian"; 
     
@@ -605,7 +639,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         loadPortalVideos(searchKeyword, dashboardPageNum, 'mainVideoGrid', false);
-        initPhotoAutoSlider(); // Photo Slider အလုပ်လုပ်ရန် Trigger စတင်ခြင်း
+        initPhotoAutoSlider(); 
 
         // Capture enter key press inside text input element
         document.getElementById('searchField').addEventListener('keypress', function (e) {
@@ -642,7 +676,7 @@
         setInterval(() => {
             index = (index + 1) % totalSlides;
             track.style.transform = `translateX(-${index * 33.333}%)`;
-        }, 3000); // ၃ စက္ကန့်လျှင် တစ်ပုံ အလိုအလျောက် ပြောင်းလဲပါမည်
+        }, 3000); 
     }
 
     // Notice Pop-up Close Action Handler function
@@ -676,7 +710,6 @@
                 if (existingLoader) existingLoader.remove();
             }
 
-            // Retrieve global historical records array securely
             let seenVideoIds = JSON.parse(sessionStorage.getItem('seenVideoIds'));
 
             if (resultData.videos && resultData.videos.length > 0) {
@@ -723,7 +756,7 @@
                 isFetchingMore = false;
             } else {
                 if (!appendMode) {
-                    targetGrid.innerHTML = `<div class="loader-msg">ရှာဖွေမှုမတွေ့ရှိပါ။</div>`;
+                    targetGrid.innerHTML = `<div class="loader-msg">$\small\text{ရှာဖွေမှုမတွေ့ရှိပါ။}$</div>`;
                 }
                 isFetchingMore = false;
             }
