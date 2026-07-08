@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>LOCALLEAK-HD</title>
+    <title>YOONMAY.COM</title>
     
-    <!-- 🌟 Google Font Style အလှများ ချိတ်ဆက်ခြင်း -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap" rel="stylesheet">
@@ -237,6 +236,77 @@
             box-shadow: 0 0 12px var(--red-mix);
         }
 
+        /* ==================== 📸 PHOTO AUTO SLIDER UI WITH RED-BLACK RUNNER FRAME ==================== */
+        .slider-wrapper {
+            margin: 0 12px;
+            padding: 4px; /* Frame ပေါ်ရန် */
+            border-radius: 18px;
+            background: linear-gradient(90deg, #ff0000, #000000, #ff0000);
+            background-size: 300% 100%;
+            animation: redBlackRunner 4s linear infinite;
+            box-shadow: 0 6px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .slider-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #000;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .slide-item {
+            width: 100.333%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .slide-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ✍️ ပုံဘေးက အဖြူကွက်နေရာမှာ စာသားထည့်ရန် Dynamic Overlay */
+        .slide-text-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%; /* ပုံရဲ့ ညာဘက်ခြမ်းအဖြူကွက်နေရာကို ချိန်ညှိထားတာဖြစ်ပါတယ် */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .slide-text-overlay p {
+            color: #1a0011; /* အဖြူကွက်ပေါ်မှာ စာသားပေါ်လွင်အောင် အမဲ/အမှောင်ရောင် သုံးထားပါတယ် */
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.5;
+            text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Red & Black Mixer Runner Background Animation Keyframe */
+        @keyframes redBlackRunner {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
         /* ==================== MAIN VIDEO CONTENT GRID ==================== */
         .main-content-box {
             width: 100%;
@@ -420,34 +490,28 @@
 </head>
 <body>
 
-<!-- 🔔 Notice Pop-up Layer Component -->
 <div class="popup-overlay" id="noticePopup">
     <div class="popup-box">
         <div class="popup-title">NOTICE</div>
         <div class="popup-text">
             ဤဝဘ်ဆိုက်သည် အသက် ၁၈ နှစ်ပြည့်ပြီးသူများသာ ကြည့်ရှုရန် ဖြစ်ပါသည်။ စည်းကမ်းချက်များကို သဘောတူပါက အောက်ပါခလုတ်ကို နှိပ်၍ ဆက်လက်ဝင်ရောက်နိုင်ပါသည်ဗျာ။
         </div>
-        <button class="popup-btn" onclick="closeNoticePopup()">လက်ခံပါသည်</button>
+        <button class="popup-btn" onclick="closeNoticePopup()">...လက်ခံပါသည်...</button>
     </div>
 </div>
 
 <div class="phone-screen">
 
-    <!-- ==================== DASHBOARD PAGE ==================== -->
     <div id="dashboardPage" class="page active">
         
-        <!-- Top Custom Panel UI Container -->
         <div class="top-panel-container">
-            <!-- Main Title Header -->
-            <div class="site-main-title">LOCALLEAK-HD</div>
+            <div class="site-main-title">YOONMAY-HD</div>
 
-            <!-- Search Bar Input Element -->
             <div class="search-container">
                 <input type="text" id="searchField" class="search-input" placeholder="Search....Videos">
                 <div class="search-icon" onclick="executeSearch()">🔍</div>
             </div>
 
-            <!-- Timeline Category Selection Section -->
             <div class="category-section">
                 <div class="category-title-wrap">
                     <span>CATEGORY</span>
@@ -461,43 +525,59 @@
             </div>
         </div>
 
-        <!-- Dashboard Videos Display Grid Area -->
+        <div class="slider-wrapper">
+            <div class="slider-container">
+                <div class="slider-track" id="sliderTrack">
+                    <div class="slide-item">
+                        <img src="https://i.ibb.co/Fk2zkyjc/New-Project-114-D3-F3928.png" alt="Slide 1">
+                        <div class="slide-text-overlay">
+                            <p>အလန်းစား မော်ဒယ်သစ်များ နေ့စဉ်တင်ပေးသည်</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://i.ibb.co/8n1JzTPc/New-Project-114-E42945-C.png" alt="Slide 2">
+                        <div class="slide-text-overlay">
+                            <p>ကြည်လင်ပြတ်သားသော HD Quality ဗီဒီယိုများ</p>
+                        </div>
+                    </div>
+                    <div class="slide-item">
+                        <img src="https://i.ibb.co/tTS0zmSh/New-Project-114-DA26311.png" alt="Slide 3">
+                        <div class="slide-text-overlay">
+                            <p>အဖွဲ့ဝင်ပြီး Premium အထူးဗီဒီယိုများ ကြည့်ရှုပါ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="main-content-box">
             <div class="video-grid" id="mainVideoGrid">
-                <!-- Items Render here via JS -->
-            </div>
+                </div>
         </div>
     </div>
 
 
-    <!-- ==================== PLAYER PAGE ==================== -->
     <div id="playerPage" class="page">
         <div class="player-container-wrapper">
-            <!-- Action Back Button -->
             <button class="back-btn" onclick="returnToDashboard()">
                 ⬅ နောက်သို့ပြန်သွားရန်
             </button>
 
-            <!-- Video Display Frame -->
             <div class="video-player-box" id="iframeWrapper"></div>
 
-            <!-- Video Title Slider Container -->
             <div class="text-slider-bar" id="activeVideoTitle">
                 Loading Video Content Title Metadata...
             </div>
 
-            <!-- 💎 ဝင်ကြည့်တာနဲ့ ဗီဒီယိုအောက်မှာ ချက်ချင်းပေါ်မယ့် Premium VIP Box -->
             <div class="premium-vip-box">
                 <div class="vip-box-text">
                     မြန်မာ အလန်းဇယား // Local Leak // မော်ဒယ်ကားများ // Solo Vd // အထန်မလေးဟာများ // ပရမီယံ Videos တွေကို Vipကြေး ၂၀၀၀၀ကျပ်ဖြင့် လာရောက်ဝင်နိုင်ပါပြီ!
                 </div>
-                <!-- 🏃‍♂️ Animated Runner Color Link Button (အောက်ကလင့်ခ်နေရာမှာ မိမိ Bot Link ထည့်ပါ) -->
                 <a href="https://t.me/your_bot_username" target="_blank" class="vip-runner-btn">
                     VIP ဝင်ရန်
                 </a>
             </div>
 
-            <!-- Related Content Blocks with Dynamic Infinite Scroll -->
             <div class="related-heading">RELATED VIDEOS</div>
             <div class="video-grid" id="relatedVideoGrid"></div>
         </div>
@@ -505,13 +585,9 @@
 
 </div>
 
-<!-- ==================== ADSTERRA ADVERTISING CODES ==================== -->
-<!-- Popunder Ad -->
 <script src="https://pl30247190.effectivecpmnetwork.com/1b/c1/8d/1bc18dbccbb0492512d665fe4728d90f.js"></script>
-<!-- Social Bar Ad -->
 <script src="https://pl30247191.effectivecpmnetwork.com/8e/e7/36/8ee736ffc13b594f8960d0a967959a01.js"></script>
 
-<!-- Core API & Advanced View State Logic Management -->
 <script>
     let searchKeyword = "asian"; 
     
@@ -529,6 +605,7 @@
 
     document.addEventListener("DOMContentLoaded", () => {
         loadPortalVideos(searchKeyword, dashboardPageNum, 'mainVideoGrid', false);
+        initPhotoAutoSlider(); // Photo Slider အလုပ်လုပ်ရန် Trigger စတင်ခြင်း
 
         // Capture enter key press inside text input element
         document.getElementById('searchField').addEventListener('keypress', function (e) {
@@ -555,6 +632,18 @@
             }
         });
     });
+
+    // 📸 Photo Auto Slider Engine
+    function initPhotoAutoSlider() {
+        const track = document.getElementById('sliderTrack');
+        let index = 0;
+        const totalSlides = 3;
+
+        setInterval(() => {
+            index = (index + 1) % totalSlides;
+            track.style.transform = `translateX(-${index * 33.333}%)`;
+        }, 3000); // ၃ စက္ကန့်လျှင် တစ်ပုံ အလိုအလျောက် ပြောင်းလဲပါမည်
+    }
 
     // Notice Pop-up Close Action Handler function
     function closeNoticePopup() {
